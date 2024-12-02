@@ -16,11 +16,11 @@ public class SignatureTest {
 
     @Test
     public void testSignatureApply() {
-        final int[] calcResult = {0};
+        final int[] CALC_RESULT = {0};
         Signature<Integer> signature = new Signature<>(x -> 
-        calcResult[0] = x * 2);
+        CALC_RESULT[0] = x * 2);
 
         signature.apply(INPUT_VALUE);
-        Assertions.assertEquals(EXPECTED_RESULT, calcResult[0]);
+        Assertions.assertEquals(EXPECTED_RESULT, CALC_RESULT[0]);
     }
 }
