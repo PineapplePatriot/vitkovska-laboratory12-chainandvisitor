@@ -7,8 +7,8 @@ import ucu.edu.ua.tasktwo.Group;
 
 public class GroupTest {
     private static final int INPUT_VALUE = 5;
-    private static final int EXPECTED_RESULT_1 = 5;
-    private static final int EXPECTED_RESULT_2 = 10;
+    private static final int EXPECTED_RESULT_FIRST = 5;
+    private static final int EXPECTED_RESULT_SECOND = 10;
     private static final int EXPECTED_RESULT_COUNT = 2;
 
     @Test
@@ -31,7 +31,7 @@ public class GroupTest {
 
         group.apply(INPUT_VALUE);
         Assertions.assertEquals(EXPECTED_RESULT_COUNT, results.size());
-        Assertions.assertEquals(List.of(EXPECTED_RESULT_1,
-         EXPECTED_RESULT_2), results);
+        Assertions.assertEquals(List.of(EXPECTED_RESULT_FIRST,
+         EXPECTED_RESULT_SECOND), results);
     }
 }
