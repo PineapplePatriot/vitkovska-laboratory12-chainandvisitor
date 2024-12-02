@@ -27,7 +27,13 @@ public class Group<T> extends Task<T> {
     public void freeze() {
         super.freeze();
         groupUuid = UUID.randomUUID().toString();
-        for (Task<T> task: tasks) {
+
+        if (tasks == null) {
+            tasks = new ArrayList<>();
+        }
+        tasks = Collections.unmodifiableList(tasks);
+
+        for (Task<T> task : tasks) {
             task.freeze();
         }
     }
