@@ -14,7 +14,8 @@ class StampingVisitorTest {
         var headers = new HashMap<String, String>();
         var result = visitor.onGroupStart(group, headers);
         
-        Assertions.assertTrue((boolean) ((boolean[]) result.get("in_group"))[0]);
+        Assertions.assertTrue((boolean) 
+        ((boolean[]) result.get("in_group"))[0]);
         visitor.onGroupEnd(group, headers);
     }
 
@@ -27,6 +28,7 @@ class StampingVisitorTest {
         visitor.onGroupStart(group, headers);
         
         var result = visitor.onSignature(signature, headers);
-        Assertions.assertTrue((boolean) ((boolean[]) result.get("in_group"))[0]);
+        Assertions.assertTrue((boolean) 
+        ((boolean[]) result.get("in_group"))[0]);
     }
 }

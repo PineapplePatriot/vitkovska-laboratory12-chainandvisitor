@@ -4,16 +4,20 @@ import ucu.edu.ua.taskone.ATM;
 import ucu.edu.ua.taskone.Sectionhundred;
 
 class ATMTest {
+    private static final int TEST_MONEY = 752;
+    private static final int TEST_MONEY_INVALID = 3;
+
     @Test
     void testATMProcessValidAmount() {
         ATM atm = new ATM();
-        Assertions.assertDoesNotThrow(() -> atm.process(756)); 
+        Assertions.assertDoesNotThrow(() -> atm.process(TEST_MONEY)); 
     }
 
     @Test
     void testATMProcessInvalidAmount() {
         ATM atm = new ATM();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> atm.process(3));
+        Assertions.assertThrows(IllegalArgumentException.class, 
+        () -> atm.process(TEST_MONEY_INVALID));
     }
 
     @Test

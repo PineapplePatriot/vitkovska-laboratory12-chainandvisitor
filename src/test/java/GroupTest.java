@@ -6,6 +6,11 @@ import ucu.edu.ua.tasktwo.Signature;
 import ucu.edu.ua.tasktwo.Group;
 
 public class GroupTest {
+    private static final int INPUT_VALUE = 5;
+    private static final int EXPECTED_RESULT_1 = 5;
+    private static final int EXPECTED_RESULT_2 = 10;
+    private static final int EXPECTED_RESULT_COUNT = 2;
+
     @Test
     public void testGroupFreeze() {
         Group<Integer> group = new Group<>();
@@ -13,7 +18,8 @@ public class GroupTest {
 
         group.freeze();
         Assertions.assertNotNull(group.getGroupUuid());
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> group.getTasks().add(new Signature<>(System.out::println)));
+        Assertions.assertThrows(UnsupportedOperationException.class,
+        () -> group.getTasks().add(new Signature<>(System.out::println)));
     }
 
     @Test
@@ -23,8 +29,9 @@ public class GroupTest {
         group.addTask(new Signature<>(results::add))
              .addTask(new Signature<>(x -> results.add(x * 2)));
 
-        group.apply(5);
-        Assertions.assertEquals(2, results.size());
-        Assertions.assertEquals(List.of(5, 10), results);
+        group.apply(INPUT_VALUE);
+        Assertions.assertEquals(EXPECTED_RESULT_COUNT, results.size());
+        Assertions.assertEquals(List.of(EXPECTED_RESULT_1,
+         EXPECTED_RESULT_2), results);
     }
 }

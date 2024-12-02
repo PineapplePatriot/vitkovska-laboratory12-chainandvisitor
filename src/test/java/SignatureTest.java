@@ -3,6 +3,9 @@ import org.junit.jupiter.api.Assertions;
 import ucu.edu.ua.tasktwo.Signature;
 
 public class SignatureTest {
+    private static final int INPUT_VALUE = 5;
+    private static final int EXPECTED_RESULT = 10;
+
     @Test
     public void testSignatureFreeze() {
         Signature<Integer> signature = new Signature<>(System.out::println);
@@ -13,10 +16,10 @@ public class SignatureTest {
 
     @Test
     public void testSignatureApply() {
-        final int[] result = {0};
-        Signature<Integer> signature = new Signature<>(x -> result[0] = x * 2);
+        final int[] calculationResult = {0};
+        Signature<Integer> signature = new Signature<>(x -> calculationResult[0] = x * 2);
 
-        signature.apply(5);
-        Assertions.assertEquals(10, result[0]);
+        signature.apply(INPUT_VALUE);
+        Assertions.assertEquals(EXPECTED_RESULT, calculationResult[0]);
     }
 }

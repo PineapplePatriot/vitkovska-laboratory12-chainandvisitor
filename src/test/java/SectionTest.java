@@ -6,6 +6,9 @@ import ucu.edu.ua.taskone.Sectiontwo;
 
 
 class SectionTest {
+    private static final int TEST_MONEY = 752;
+    private static final int TEST_MONEY_INVALID = 3;
+
     @Test
     void testSectionProcessValidAmount() {
         Sectionhundred hundred = new Sectionhundred();
@@ -15,7 +18,7 @@ class SectionTest {
         hundred.setNext(fifty);
         fifty.setNext(two);
 
-        Assertions.assertDoesNotThrow(() -> hundred.process(752));
+        Assertions.assertDoesNotThrow(() -> hundred.process(TEST_MONEY));
     }
 
     @Test
@@ -27,6 +30,7 @@ class SectionTest {
         hundred.setNext(fifty);
         fifty.setNext(two);
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> hundred.process(3)); // Invalid case
+        Assertions.assertThrows(IllegalArgumentException.class, 
+        () -> hundred.process(TEST_MONEY_INVALID));
     }
 }
